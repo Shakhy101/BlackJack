@@ -23,9 +23,6 @@ import os
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
-game_ended = False
-new_game = True
-
 
 def clear():
     return os.system('clear')
@@ -62,10 +59,12 @@ def compare(user_score, computer_score):
         return "You win."
     else:
         return "You lose."
-        
 
 
-def blackjack(game_ended, user_cards, computer_cards):
+def blackjack():
+    game_ended = False
+    user_cards = []
+    computer_cards = []
     print(logo)
 
     # deal starting hand
@@ -102,12 +101,6 @@ def blackjack(game_ended, user_cards, computer_cards):
     print(result)
 
 
-while new_game:
-    if input("Do you want to play a game of blackjack? Type 'y' or 'n': ").lower() == "y":
-        user_cards = []
-        computer_cards = []
-        clear()
-        blackjack(game_ended, user_cards, computer_cards)
-
-    else:
-        new_game = False
+while input("Do you want to play a game of blackjack? Type 'y' or 'n': ").lower() == "y":
+    clear()
+    blackjack()
